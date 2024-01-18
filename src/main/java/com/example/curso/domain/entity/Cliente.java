@@ -16,6 +16,9 @@ public class Cliente {
 	@Column(length = 100) //tamanho
 	private String nome;
 
+	@Column(name = "cpf", length = 11)
+	private String cpf;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	private Set<Pedido> pedidos;
@@ -52,6 +55,14 @@ public class Cliente {
 
 	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	@Override
